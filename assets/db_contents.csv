@@ -1,0 +1,91 @@
+name,header
+Overall Population,Census Variables
+"White, non-Hispanic population",Census Variables
+Black alone population,Census Variables
+Native American alone population,Census Variables
+Asian population,Census Variables
+Hispanic population,Census Variables
+Overall population in labor force,Census Variables
+"White, non-Hispanic labor force",Census Variables
+Native American alone labor force,Census Variables
+Black alone labor force,Census Variables
+Asian labor force,Census Variables
+Hispanic labor force,Census Variables
+Overall managerial,Census Variables
+Overall median earnings,Census Variables
+"White, non-Hispanic median earnings",Census Variables
+Black alone median earnings,Census Variables
+Native American alone median earnings,Census Variables
+Asian median earnings,Census Variables
+Hispanic median earnings,Census Variables
+Estimate of the population (25 years and over) with a Bachelor’s degree (regardless of place of birth),Census Variables
+estimate for “Graduate or professional degree” (among the population 25 years and over),Census Variables
+"White, non-Hispanic with BA or better",Census Variables
+Black alone with BA or better,Census Variables
+Native American alone with BA or better,Census Variables
+Asian with BA or better,Census Variables
+Hispanic with BA or better,Census Variables
+Overall percentage below the poverty level,Census Variables
+"White, non-Hispanic below poverty level",Census Variables
+Black alone below poverty level,Census Variables
+Native American alone below poverty level,Census Variables
+Asian below poverty level,Census Variables
+Hispanic below poverty level,Census Variables
+Overall percentage with health insurance,Census Variables
+"White, non-Hispanic with health insurance",Census Variables
+Black alone with health insurance,Census Variables
+Native American alone with health insurance,Census Variables
+Asian with health insurance,Census Variables
+Hispanic with health insurance,Census Variables
+Ratio of Native Americans to whites with health insurance,Census Variables
+Ratio of Native Americans to whites below poverty level,Census Variables
+Ratio of Native Americans to whites with BA or more education,Census Variables
+Ratio of Native American participation to white participation in labor force,Census Variables
+Registration information is provided at DMV offices within the county,Move Questions
+Registration information is provided at government offices that serve poor citizens in the county,Move Questions
+Local election officials provide registration information to general media sources,Move Questions
+Local election officials provide registration information to minority-oriented media sources,Move Questions
+Information about registration is provided in minority languages,Move Questions
+Information about voting is provided at government offices serving poor citizens,Move Questions
+Local election officials provide voting information to local media,Move Questions
+Local election officials provide voting information to minority-oriented media,Move Questions
+Information about voting is provided in minority languages,Move Questions
+History of voter rights abuses in County,Move Questions
+No shortage of poll workers,Move Questions
+Have adequate funding to pay poll workers,Move Questions
+Have been able to conduct poll worker training in past 4 years,Move Questions
+Poll workers are a cross section of the population,Move Questions
+Poll workers can assist voters with limited English proficiency,Move Questions
+Have run a media campaign to recruit poll workers in past 4 years,Move Questions
+Registration Drives,Move Questions
+Voter ID is not required to register,Move Questions
+Registration at DMV offices,Move Questions
+Registration at government offices serving low income people,Move Questions
+No requirement that registration forms be notarized,Move Questions
+Registration information provided in minority languages,Move Questions
+Alternative Voting: Drop Boxes,Move Questions
+Alternative Voting: Vote Centers,Move Questions
+Registration,MoVE variable sums
+pollworkers,MoVE variable sums
+dropboxes,MoVE variable sums
+Vote Centers,MoVE variable sums
+Abuses,MoVE variable sums
+Voting,MoVE variable sums
+Ease of Registration,MoVE variable sums
+Reg,MoVE variable sums
+state_id,State MoVE Variables
+Pre-Registration Age Laws(4 item Likert),State MoVE Variables
+Election Day Registration Restrictions(4 item Likert),State MoVE Variables
+Online Voter Registration(3 item Likert),State MoVE Variables
+Allow Registration Drives(Dichotomous 0/1 scale),State MoVE Variables
+automatic voter registration(4 Likert),State MoVE Variables
+early voting(3 item likert),State MoVE Variables
+Voter ID laws(5 item Likert),State MoVE Variables
+Early voting(ratio level: # of early voting days),State MoVE Variables
+state property tax rate ranked low to high 1-50,State MoVE Variables
+average annual amount in dollars($)  paid in property taxes,State MoVE Variables
+felony disenfranchisement(6 item Likert),State MoVE Variables
+state_name,identifier
+state_id,identifier
+county_id,identifier
+county_name,identifier

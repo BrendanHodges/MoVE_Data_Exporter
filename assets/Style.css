@@ -1,0 +1,103 @@
+/* styles.css */
+
+/* Import a clean professional font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+html, body, [class*="css"] {
+  font-family: 'IBM Plex Sans', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  letter-spacing: 0.01rem;
+  color: #1F2937;
+}
+
+/* Headings with maroon emphasis */
+h1, h2, h3 {
+  font-weight: 600;
+  color: #7A1F2B;
+  letter-spacing: 0.005rem;
+}
+h1 { font-size: 1.6rem; margin-bottom: 0.75rem; }
+h2 { font-size: 1.25rem; margin-top: 1.25rem; margin-bottom: 0.5rem; }
+h3 { font-size: 1.05rem; margin-top: 1rem; margin-bottom: 0.35rem; }
+
+/* Sidebar with maroon line highlight */
+section[data-testid="stSidebar"] {
+  border-right: 2px solid #7A1F2B;
+  background-color: #FDF8F8; /* pale maroon tint */
+}
+
+/* Buttons: maroon default, darker hover */
+.stButton > button {
+  border-radius: 8px !important;
+  border: 1px solid #7A1F2B !important;
+  background: #7A1F2B !important;
+  color: #FFFFFF !important;
+  font-weight: 600 !important;
+  padding: 0.5rem 0.9rem !important;
+  box-shadow: none !important;
+}
+.stButton > button:hover {
+  background: #5E1620 !important;
+  border-color: #5E1620 !important;
+}
+
+/* Inputs with maroon focus */
+input, textarea, select, .stTextInput, .stTextArea, .stNumberInput, .stDateInput, .stSelectbox, .stMultiSelect {
+  border-radius: 8px !important;
+}
+div[data-baseweb="base-input"] input,
+div[data-baseweb="select"] > div {
+  border: 1px solid #D1D5DB !important;
+  box-shadow: none !important;
+}
+div[data-baseweb="base-input"]:focus-within,
+div[data-baseweb="select"]:focus-within {
+  border: 1px solid #7A1F2B !important;
+}
+
+/* Metric cards and alerts with maroon borders */
+[data-testid="stMetric"], .stAlert {
+  border: 1px solid #7A1F2B !important;
+  border-radius: 12px !important;
+  background: #FFF9F9 !important;
+}
+
+/* Tables with maroon headers */
+thead tr th {
+  background: #7A1F2B !important;
+  color: #FFFFFF !important;
+  font-weight: 600 !important;
+}
+tbody tr:nth-child(even) {
+  background: #FAFAFB !important;
+}
+
+/* Links in maroon */
+a {
+  color: #7A1F2B;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Tags/Chips in maroon */
+span[data-baseweb="tag"] {
+  background-color: #7A1F2B !important;
+  color: #FFFFFF !important;
+  border-radius: 8px !important;
+}
+
+/* Code blocks with maroon border */
+code, pre {
+  font-size: 0.9rem !important;
+  background: #FDF8F8 !important;
+  border: 1px solid #7A1F2B !important;
+  border-radius: 8px !important;
+}
+
+/* Forms with maroon accents */
+.stForm {
+  padding: 1rem;
+  border: 2px solid #7A1F2B;
+  border-radius: 12px;
+  background: #FFFFFF;
+}
