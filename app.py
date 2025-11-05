@@ -2,7 +2,7 @@ import os, tempfile, requests, duckdb, streamlit as st
 from pathlib import Path
 from db_duck import establish_db_connection
 from utils.db_utils import get_all_variable, get_columns_in_table, grab_county_names, grab_state_ids, grab_census_variable_ids, run_all_state_query, run_county_query
-from utils.app_utils import checkbox_multi_census, checkbox_multi_MoVE, render_selection_summary, apply_single_header, asset_path, show_summary_stats
+from utils.app_utils import checkbox_multi_census, checkbox_multi_MoVE, render_selection_summary, apply_single_header, asset_path, show_summary_stats, filter_df_by_density
 import pandas as pd
 ################################
 #Helper Functions###############
@@ -100,8 +100,18 @@ with left:
 
     st.divider()
 
+    density_filter = st.radio(
+        "Export scope",
+        ("All", "Rural", "Urban", "Suburban"),
+        horizontal=True,
+        key="Density Filter",
+        help="Filter out Counties by population density (people per square mile)."
+    )
+
     # --- Run query button (safe outside of any form) ---
     run_clicked = st.button("Run query", type="primary")
+
+    st.divider()
 
 with right:
     st.subheader("Tips")
@@ -154,15 +164,21 @@ if run_clicked:
         else:
             df1 = run_county_query(con, county_FIPs, census_vars, state_move_vars, county)
 
+    df1 = filter_df_by_density(df1, density_filter)
+
+    if "Registration" or "Registration_Sums" in df1.columns:
+        df1.rename(columns={"Registration_Sum": "Drives_Sum"}, inplace=True)
+        print(df1.columns)
+        print("WHAT THE HECK")
     # --- Apply MultiIndex headers ---
     try:
         df1 = apply_single_header(df1, asset_path("db_contents.csv"))
     except Exception as e:
         st.warning(f"Header mapping skipped: {e}")
 
+    
     # >>> Persist results for future reruns/page switches <<<
     st.session_state.df1 = df1
-
 # --- Show results if we either just ran the query OR have prior results in session ---
 df_to_show = st.session_state.get("df1", None)
 
@@ -170,6 +186,10 @@ st.subheader("Results")
 if df_to_show is None or len(df_to_show) == 0:
     st.info("No rows returned. Adjust filters and try again.")
 else:
+    if ('Census Variables', 'Land Area in Square Miles') in df_to_show.columns:
+        df_to_show.drop(columns=[('Census Variables', 'Land Area in Square Miles')], inplace=True)
+    if ('Other', 'Population Density') in df_to_show.columns:
+        df_to_show.drop(columns=[('Other', 'Population Density')], inplace=True)
     st.dataframe(df_to_show, use_container_width=True)
 
     # --- Optional download ---

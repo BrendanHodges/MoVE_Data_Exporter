@@ -6,33 +6,64 @@ import sys, os
 ###########################################
 #MoVE and Census variable checkboxes logic#
 ###########################################
+import streamlit as st
+
+
 def checkbox_multi_census(label: str, options: list[str], cols: int = 3) -> list[str]:
     st.subheader(label)
+
+    ALWAYS_INCLUDED = {"Land Area in Square Miles", "Overall Population"}
 
     q = st.text_input("Search census variables", placeholder="Type to filter…").strip().lower()
     filtered = [o for o in options if q in o.lower()] if q else options
 
+    # --- Bulk actions (skip always-included variables) ---
     c1, c2 = st.columns([1, 1])
     with c1:
         if st.button("Select all", key=f"select_all_{label}"):
-            for i, opt in enumerate(filtered):
-                st.session_state[f"var_census_{opt}"] = True
+            for opt in filtered:
+                if opt not in ALWAYS_INCLUDED:
+                    st.session_state[f"var_census_{opt}"] = True
     with c2:
         if st.button("Clear all", key=f"clear_all_{label}"):
-            for i, opt in enumerate(filtered):
-                st.session_state[f"var_census_{opt}"] = False
+            for opt in filtered:
+                if opt not in ALWAYS_INCLUDED:
+                    st.session_state[f"var_census_{opt}"] = False
 
+    # Ensure mandatory variables are always checked
+    for opt in ALWAYS_INCLUDED:
+        if opt in options:
+            st.session_state[f"var_census_{opt}"] = True
+
+    # --- Render checkboxes ---
     cols_list = st.columns(cols)
     for i, opt in enumerate(filtered):
         with cols_list[i % cols]:
-            st.checkbox(
-                opt,
-                key=f"var_census_{opt}",
-                value=st.session_state.get(f"var_census_{opt}", opt == "Overall Population")
-            )
+            if opt in ALWAYS_INCLUDED:
+                st.checkbox(
+                    opt,
+                    key=f"var_census_{opt}",
+                    value=True,
+                    disabled=True,
+                    help="Always included"
+                )
+            else:
+                st.checkbox(
+                    opt,
+                    key=f"var_census_{opt}",
+                    value=st.session_state.get(f"var_census_{opt}", False)
+                )
 
+    # --- Collect selections ---
     selected = [opt for opt in options if st.session_state.get(f"var_census_{opt}", False)]
+
+    # Guarantee mandatory variables are in the final list
+    for opt in ALWAYS_INCLUDED:
+        if opt in options and opt not in selected:
+            selected.append(opt)
+
     return selected
+
 
 def checkbox_multi_MoVE(label: str, dataframe, cols: int = 3):
     category_map = {
@@ -210,3 +241,17 @@ def show_summary_stats(df: pd.DataFrame):
     summary_df = summary_df[['count', 'mean', 'std', 'min', '25%', '50%', 'median', '75%', 'max']]
 
     st.dataframe(summary_df, use_container_width=True)
+
+
+def filter_df_by_density(df: pd.DataFrame, density_filter: str) -> pd.DataFrame:
+    df['Population Density'] = df['1: Overall Population'].astype(float) / df['43: Land Area in Square Miles'].astype(float)
+    if density_filter == "All":
+        return df
+    elif density_filter == "Rural":
+        return df[df['Population Density'] < 200]
+    elif density_filter == "Suburban":
+        return df[(df['Population Density'] >= 200) & (df['Population Density'] <= 2000)]
+    elif density_filter == "Urban":
+        return df[df['Population Density'] > 2000]
+    else:
+        return df

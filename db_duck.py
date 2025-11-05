@@ -20,7 +20,7 @@ def connect_ro(db_path: str):
 def establish_db_connection():
     try:
         # Attempt to load the URL from secrets
-        snapshot_url = st.secrets.get("SNAPSHOT_URL", "")
+        snapshot_url = st.secrets.get("SNAPSHOT_URL2", "")
         if not snapshot_url:
             st.error("❌ No snapshot URL found. Please check .streamlit/secrets.toml.")
             return None

@@ -67,6 +67,7 @@ Alternative Voting: Drop Boxes,Move Questions
 Alternative Voting: Vote Centers,Move Questions
 Registration,MoVE variable sums
 pollworkers,MoVE variable sums
+Drives,MoVE variable sums
 dropboxes,MoVE variable sums
 Vote Centers,MoVE variable sums
 Abuses,MoVE variable sums
@@ -89,3 +90,4 @@ state_name,identifier
 state_id,identifier
 county_id,identifier
 county_name,identifier
+Land Area in Square Miles,Census Variables
