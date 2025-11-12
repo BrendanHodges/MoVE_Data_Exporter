@@ -21,7 +21,6 @@ st.set_page_config(page_title="📤 Measurement of Voting Equity data Exporter",
 ## Streamlit App Configuration and Layout
 ##########################################
 
-
 st.markdown("## 🏛️ MoVE — Admin Data Exporter")
 st.caption("Measurement of Voting Equity • Export researcher-ready snapshots.")
 
@@ -168,8 +167,6 @@ if run_clicked:
 
     if "Registration" or "Registration_Sums" in df1.columns:
         df1.rename(columns={"Registration_Sum": "Drives_Sum"}, inplace=True)
-        print(df1.columns)
-        print("WHAT THE HECK")
     # --- Apply MultiIndex headers ---
     try:
         df1 = apply_single_header(df1, asset_path("db_contents.csv"))

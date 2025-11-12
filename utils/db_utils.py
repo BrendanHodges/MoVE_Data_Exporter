@@ -85,7 +85,7 @@ def get_columns_in_table(con, table_name: str) -> pd.DataFrame:
     """
     rows = con.execute(query).fetchall()
     row = list(rows)
-    return [value[1] for value in row]
+    return [value[1] for value in row if value[1] != 'state_id']
 
 def grab_county_names(con: duckdb.DuckDBPyConnection,
                       fips_list: Union[str, List[Union[str, int]]]) -> List[str]:

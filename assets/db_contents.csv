@@ -41,28 +41,28 @@ Ratio of Native Americans to whites with health insurance,Census Variables
 Ratio of Native Americans to whites below poverty level,Census Variables
 Ratio of Native Americans to whites with BA or more education,Census Variables
 Ratio of Native American participation to white participation in labor force,Census Variables
-Registration information is provided at DMV offices within the county,Move Questions
-Registration information is provided at government offices that serve poor citizens in the county,Move Questions
-Local election officials provide registration information to general media sources,Move Questions
-Local election officials provide registration information to minority-oriented media sources,Move Questions
-Information about registration is provided in minority languages,Move Questions
-Information about voting is provided at government offices serving poor citizens,Move Questions
-Local election officials provide voting information to local media,Move Questions
-Local election officials provide voting information to minority-oriented media,Move Questions
-Information about voting is provided in minority languages,Move Questions
+Registration information is provided at DMV offices within the county,Registration Provisions MoVE Questions
+Registration information is provided at government offices that serve poor citizens in the county,Registration Provisions MoVE Questions
+Local election officials provide registration information to general media sources,Registration Provisions MoVE Questions
+Local election officials provide registration information to minority-oriented media sources,Registration Provisions Move Questions
+Information about registration is provided in minority languages,Registration Provisions Move Questions
+Information about voting is provided at government offices serving poor citizens,Voting Provisions Move Questions
+Local election officials provide voting information to local media,Voting Provisions Move Questions
+Local election officials provide voting information to minority-oriented media,Voting Provisions Move Questions
+Information about voting is provided in minority languages,Voting Provisions Move Questions
 History of voter rights abuses in County,Move Questions
-No shortage of poll workers,Move Questions
-Have adequate funding to pay poll workers,Move Questions
-Have been able to conduct poll worker training in past 4 years,Move Questions
-Poll workers are a cross section of the population,Move Questions
-Poll workers can assist voters with limited English proficiency,Move Questions
-Have run a media campaign to recruit poll workers in past 4 years,Move Questions
+No shortage of poll workers,Pollworker Availability Move Questions
+Have adequate funding to pay poll workers,Pollworker Availability Move Questions
+Have been able to conduct poll worker training in past 4 years,Pollworker Availability Move Questions
+Poll workers are a cross section of the population,Pollworker Availability Move Questions
+Poll workers can assist voters with limited English proficiency,Pollworker Availability Move Questions
+Have run a media campaign to recruit poll workers in past 4 years,Pollworker Availability Move Questions
 Registration Drives,Move Questions
-Voter ID is not required to register,Move Questions
-Registration at DMV offices,Move Questions
-Registration at government offices serving low income people,Move Questions
-No requirement that registration forms be notarized,Move Questions
-Registration information provided in minority languages,Move Questions
+Voter ID is not required to register,Ease of Registration Move Questions
+Registration at DMV offices,Ease of Registration Move Questions
+Registration at government offices serving low income people,Ease of Registration Move Questions
+No requirement that registration forms be notarized,Ease of Registration Move Questions
+Registration information provided in minority languages,Ease of Registration Move Questions
 Alternative Voting: Drop Boxes,Move Questions
 Alternative Voting: Vote Centers,Move Questions
 Registration,MoVE variable sums

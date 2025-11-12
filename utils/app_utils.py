@@ -163,6 +163,19 @@ def render_selection_summary():
 ###################################
 #Attach Headers to columns#########
 ###################################
+def rename_categories() -> pd.DataFrame:
+    rename_map = {
+        "Reg_Sum": "Provison of Information About Registration (Overall Score)",
+        "Voting_Sum": "Provision of Information About Voting (Overall Score)",
+        "Abuses_Sum": "History of Voting Rights Abuses in County",
+        "pollworkers_Sum": "Availability of Poll Workers (Overall Score)",
+        "Drives_Sum": "Registration Drives",
+        "dropboxes_Sum": "Drop Box Availability",
+        "Vote Centers_Sum": "Vote Center Availability",
+        "Ease of Registration_Sum": "Ease of Registration (Overall Score)"
+    }
+    return rename_map
+
 def _normalize(col: str) -> str:
     """
     Normalize column names for mapping:
@@ -197,8 +210,11 @@ def apply_single_header(df: pd.DataFrame, csv_path: str, default="Other") -> pd.
     df_norm = { _normalize(c) for c in df.columns }
     csv_norm = set(lookup.keys())
 
+    rename_vars = rename_categories()
     out = df.copy()
     out.columns = pd.MultiIndex.from_arrays([top, df.columns])
+
+    out.rename(columns=rename_vars, level=1, inplace=True)
     return out
 
 def base_dir() -> Path:
@@ -248,9 +264,9 @@ def filter_df_by_density(df: pd.DataFrame, density_filter: str) -> pd.DataFrame:
     if density_filter == "All":
         return df
     elif density_filter == "Rural":
-        return df[df['Population Density'] < 200]
+        return df[df['Population Density'] < 150]
     elif density_filter == "Suburban":
-        return df[(df['Population Density'] >= 200) & (df['Population Density'] <= 2000)]
+        return df[(df['Population Density'] >= 150) & (df['Population Density'] <= 2000)]
     elif density_filter == "Urban":
         return df[df['Population Density'] > 2000]
     else:
